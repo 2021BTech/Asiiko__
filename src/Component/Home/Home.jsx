@@ -15,8 +15,12 @@ import bg from '../../Assets/BG-img.JPG'
 import {BsPersonCircle} from 'react-icons/bs'
 //page
 import Popup from '../Modal/Popup'
+//state
+import { useState } from 'react'
 
 const Home = () => {
+    const [openModal, setOpenModal] = useState(false);
+
   return (
     <div className="container main">
         <div className="row">
@@ -38,12 +42,16 @@ const Home = () => {
                                 className='btn btn-primary'>
                                 LOG IN
                             </Button>
-                            <Popup/>
-                            {/* <Button 
+                            <Button
+                                onClick={ () => setOpenModal(true)} 
                                 variant="primary"
-                                className='btn btn-success'>
+                                className='btn btn-success'
+                                > 
                                 GET STARTED
-                            </Button> */}
+                            </Button>
+                            <Popup
+                            open={openModal} 
+                            onClose={() => setOpenModal(false)} />
                         </div>
                     </Container>
                 </Navbar>
@@ -76,11 +84,15 @@ const Home = () => {
 
             <div className='btn-details'>
                 <button 
+                onClick={() => setOpenModal(true)} 
                 type="button" 
                 className="btn btn-primary"
                 >
                 GET STARTED TODAY
                 </button>
+                <Popup 
+                    open={openModal} 
+                    onClose={() => setOpenModal(false)} />
                 <button 
                 type="button" 
                 class="btn btn-success">

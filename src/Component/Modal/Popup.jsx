@@ -1,29 +1,25 @@
 import React from 'react'
 import './Popup.css'
 
-import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal'
 
 //logo
 import logo from '../../Assets/logo 2.JPG'
 
 
-const Popup = () => {
-    const [show, setShow] = useState(false);
+const Popup = ({ open, onClose }) => {
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    if (!open) return null;
 return (
   <>
-     <Button
-        onClick={handleShow}
-        variant="primary"
-        className='btn btn-success'
-        > GET STARTED
-      </Button>
 
-    <Modal show={show} onHide={handleClose} className='modal-container'>
+    <Modal 
+      show={open} 
+      onHide={onClose} 
+      className='modal-container'
+      onClick={(e) => {
+          e.stopPropagation();
+        }}>
       <Modal.Header closeButton>
         <Modal.Title className='modal-title m-3'>Start using Asiiko for your team today!</Modal.Title>
       </Modal.Header>
