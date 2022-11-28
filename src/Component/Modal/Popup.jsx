@@ -1,6 +1,7 @@
 import React from 'react'
 import './Popup.css'
 
+//bootstrap
 import Modal from 'react-bootstrap/Modal'
 
 //logo
@@ -8,7 +9,7 @@ import logo from '../../Assets/logo 2.JPG'
 
 
 const Popup = ({ open, onClose }) => {
-
+  
     if (!open) return null;
 return (
   <>

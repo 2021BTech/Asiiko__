@@ -95,7 +95,7 @@ const Home = () => {
                     onClose={() => setOpenModal(false)} />
                 <button 
                 type="button" 
-                class="btn btn-success">
+                className="btn btn-success">
                 LEARN MORE
                 </button>
             </div>
